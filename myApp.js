@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
     res.sendFile(absolutePath = __dirname + '/views/index.html');
 });
 app.get("/json", (req, res) => {
+    //Do it the FCC way
     if (process.env.VAR_NAME === "allCaps") {
         response = "Hello json".toUpperCase();
       } else {
