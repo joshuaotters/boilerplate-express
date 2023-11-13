@@ -22,10 +22,12 @@ app.get("/json", (req, res) => {
     //Do it the FCC way
     if (process.env.VAR_NAME === "allCaps") {
         response = "Hello json".toUpperCase();
+        res.json({"message" : response})  
       } else {
         response = "Hello json";
+        res.json({"message" : response});  
       }
-      res.json({"message" : response})  
+      
 });
 
 
