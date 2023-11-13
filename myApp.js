@@ -6,7 +6,7 @@ let app = express();
 // Assets at the /public route
 app.use("/public", express.static(__dirname + "/public"));
 const messageStyle = process.env.MESSAGE_STYLE;
-console.log(messageStyle);
+console.log(process.env);
 
 
 app.get("/", (req, res) => {
