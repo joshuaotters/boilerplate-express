@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 app.get("/json", (req, res) => {
     //Do it the FCC way
-    if (process.env.VAR_NAME === "uppercase") {
+    if (process.env.MESSAGE_STYLE === "uppercase") {
         response = "Hello json".toUpperCase();
         res.json({"message" : response});
         console.log("Response: ", response + "Message Style: ", process.env.VAR_NAME); 
