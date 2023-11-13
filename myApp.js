@@ -9,6 +9,8 @@ let app = express();
 
 // Assets at the /public route
 app.use("/public", express.static(__dirname + "/public"));
+const messageStyle = process.env.MESSAGE_STYLE;
+
 
 
 
@@ -16,7 +18,12 @@ app.get("/", (req, res) => {
     res.sendFile(absolutePath = __dirname + '/views/index.html');
 });
 app.get("/json", (req, res) => {
-    res.json({"message": process.env.MESSAGE_STYLE});
+    if(messageStyle === "uppercase"){
+        res.json({"message": "hello json".toUpperCase()});
+    } else {
+        res.json({"message": "hello json".toLowerCase()});
+    }
+    
 })
 
 
