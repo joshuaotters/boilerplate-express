@@ -14,14 +14,17 @@ var response = "Hello Json";
 
 
 
+
 app.get("/", (req, res) => {
     res.sendFile(absolutePath = __dirname + '/views/index.html');
 });
 app.get("/json", (req, res) => {
     if(process.env.MESSAGE_STYLE === "uppercase"){
         res.json({"message": response.toUpperCase()});
+        console.log(process.env.MESSAGE_STYLE.toUpperCase());
     } else {
         res.json({"message": "Hello json"});
+        console.log(process.env.MESSAGE_STYLE.toUpperCase());
     }
     
 })
