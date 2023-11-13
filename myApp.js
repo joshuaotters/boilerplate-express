@@ -20,9 +20,9 @@ app.get("/", (req, res) => {
 });
 app.get("/json", (req, res) => {
     if (process.env.VAR_NAME === "allCaps") {
-        response = "Hello World".toUpperCase();
+        response = "Hello json".toUpperCase();
       } else {
-        response = "Hello World";
+        response = "Hello json";
       }  
 });
 
