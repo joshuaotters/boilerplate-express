@@ -9,7 +9,7 @@ let app = express();
 
 // Assets at the /public route
 app.use("/public", express.static(__dirname + "/public"));
-var response = "Hello Json".toUpperCase();
+var response = "Hello Json";
 
 
 
