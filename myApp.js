@@ -9,7 +9,7 @@ let app = express();
 
 // Assets at the /public route
 app.use("/public", express.static(__dirname + "/public"));
-//const messageStyle = process.env.MESSAGE_STYLE;
+var response = "Hello Json".toUpperCase();
 
 
 
@@ -19,9 +19,9 @@ app.get("/", (req, res) => {
 });
 app.get("/json", (req, res) => {
     if(process.env.MESSAGE_STYLE === "uppercase"){
-        res.json({"message": "hello json".toUpperCase()});
+        res.json({"message": response.toUpperCase()});
     } else {
-        res.json({"message": "hello json".toLowerCase()});
+        res.json({"message": "Hello json"});
     }
     
 })
