@@ -11,7 +11,7 @@ var response = "Hello Json".toUpperCase(); // now becomes "HELLO WORLD"
 app.get("/", (req, res) => {
     res.sendFile(absolutePath = __dirname + '/views/index.html');
 });
-app.get("/json", (request, response) => {
+app.get("/json", (req, res) => {
     //Do it the FCC way
     if (process.env.MESSAGE_STYLE == "uppercase") {
         response = "Hello json".toUpperCase();
