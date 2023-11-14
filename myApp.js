@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/get", (req, res, next) => {
+app.use("/get", (req, res, next) => {
   req.time = new Date().toString();
   res.send({"time": req.time});
   console.log(`${req.time}`);
