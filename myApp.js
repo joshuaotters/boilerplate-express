@@ -8,9 +8,17 @@ let app = express();
 app.use("/public", express.static(__dirname + "/public"));
 var response = "Hello Json".toUpperCase(); // now becomes "HELLO WORLD"
 
+//Middleware to intercept all GET requests
+app.use( (req, res, next) => {
+  console.log(req.method, + " " + req.path, " - " + req.ip);
+  next();
+});
+
+
 app.get("/", (req, res) => {
     res.sendFile(absolutePath = __dirname + '/views/index.html');
 });
+
 app.get("/json", (req, res) => {
     //Do it the FCC way
     if (process.env.MESSAGE_STYLE == "uppercase") {
@@ -24,6 +32,8 @@ app.get("/json", (req, res) => {
       }
       
 });
+
+
 
 
 
