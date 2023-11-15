@@ -44,7 +44,7 @@ app.get("/json", (req, res) => {
 
 app.get("/:word/echo", (req, res) => {
   req.echo = req.params.word;
-  res.send({"echo": req.echo});
+  res.json({"echo": req.echo});
 });
 
 
