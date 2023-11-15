@@ -19,7 +19,6 @@ app.get("/now", (req, res, next) => {
   next();
 }, (req, res) => {
   res.send({"time": req.time});
-  next();
 });
 
 var response = "Hello Json".toUpperCase(); // now becomes "HELLO WORLD"
@@ -27,6 +26,7 @@ var response = "Hello Json".toUpperCase(); // now becomes "HELLO WORLD"
 
 app.get("/", (req, res) => {
     res.sendFile(absolutePath = __dirname + '/views/index.html');
+    console.log(req.params.echo);
 });
 
 app.get("/json", (req, res) => {
@@ -42,6 +42,11 @@ app.get("/json", (req, res) => {
       }
       
 });
+
+app.get("/:word/echo", (req, res) => {
+  //req.params.word
+  res.send({"echo": req.params.word});
+})
 
 
 
