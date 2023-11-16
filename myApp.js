@@ -1,5 +1,6 @@
 //Pull environment variables
 require('dotenv').config();
+var bodyParser = require('body-parser');
 
 let express = require('express');
 let app = express();
@@ -13,6 +14,8 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 });
+
+app.use("/post", bodyParser.urlencoded({extended: false}));
 
 app.get("/now", (req, res, next) => {
   req.time = new Date().toString();
