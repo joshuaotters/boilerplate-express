@@ -1,6 +1,6 @@
-//Pull environment variables
+//Pull dependencies
 require('dotenv').config();
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 let express = require('express');
 let app = express();
@@ -52,11 +52,16 @@ app.get("/:word/echo", (req, res) => {
 
 app.get("/name", (req, res) => {
  //const req.query = {first: , last: 'lastname'};
- const fullname = req.query.first + " "+ req.query.last;
- res.json({"name": fullname});
+ const fullname = req.query.firstname + " "+ req.query.lastname;
+ //res.json({"name": fullname});
+ res.send(req.body.firstname);
  //console.log(`${req.query}`);
 });
 
+app.post("/name", (req, res) => {
+  const fullname = req.query.first + " "+ req.query.last;
+  res.json({"name": fullname});
+});
 
 
 
