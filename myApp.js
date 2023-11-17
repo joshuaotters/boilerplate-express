@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 
 app.use("/post", bodyParser.urlencoded({extended: false}));
 
+
 app.get("/now", (req, res, next) => {
   req.time = new Date().toString();
   next();
@@ -53,17 +54,14 @@ app.get("/:word/echo", (req, res) => {
 app.get("/name", (req, res) => {
  //const req.query = {first: , last: 'lastname'};
  const fullname = req.query.firstname + " "+ req.query.lastname;
- //res.json({"name": fullname});
- res.send(req.body.firstname);
- //console.log(`${req.query}`);
+ res.json({"name": fullname});
 });
 
-app.post("/name", (req, res) => {
-  const fullname = req.query.first + " "+ req.query.last;
-  res.json({"name": fullname});
+app.post("/name", function(req, res) {
+  // Handle the data in the request
+  var string = req.body.first + " " + req.body.last;
+  res.json({ name: string });
 });
-
-
 
 
 
