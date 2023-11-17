@@ -15,7 +15,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.json());
 app.use("/post", bodyParser.urlencoded({extended: false}));
+
 
 
 app.get("/now", (req, res, next) => {
@@ -60,7 +62,8 @@ app.get("/name", (req, res) => {
 app.post("/name", function(req, res) {
   // Handle the data in the request
   var string = req.body.first + " " + req.body.last;
-  res.json({ name: string });
+  res.json({ "name": string });
+  //console.log(`${req.body.first}`);
 });
 
 
